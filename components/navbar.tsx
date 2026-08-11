@@ -2,18 +2,25 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Works", href: "#works" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
@@ -27,6 +34,10 @@ export function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
+  }
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   return (
@@ -71,6 +82,15 @@ export function Navbar() {
 
           {/* Status Indicator */}
           <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              data-cursor-hover
+              onClick={toggleTheme}
+              className="group flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors duration-300 hover:border-foreground/30 hover:text-foreground"
+              aria-label="Toggle theme"
+            >
+              {mounted && theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            </button>
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
@@ -129,13 +149,23 @@ export function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="flex items-center gap-3 mt-8"
+                className="flex flex-col items-center gap-5 mt-8"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-                </span>
-                <span className="font-mono text-xs tracking-wider text-muted-foreground">AVAILABLE FOR WORK</span>
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="flex h-11 w-11 items-center justify-center border border-border text-muted-foreground"
+                  aria-label="Toggle theme"
+                >
+                  {mounted && theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+                </button>
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+                  </span>
+                  <span className="font-mono text-xs tracking-wider text-muted-foreground">AVAILABLE FOR WORK</span>
+                </div>
               </motion.div>
             </nav>
           </motion.div>

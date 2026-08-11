@@ -51,7 +51,7 @@ export function Works() {
   }
 
   return (
-    <section className="relative py-32 px-8 md:px-12 md:py-24">
+    <section id="works" className="relative py-32 px-8 md:px-12 md:py-24">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export function Works() {
         transition={{ duration: 0.8 }}
         className="mb-24"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">04 — SELECTED WORKS</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">SELECTED WORKS</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">The Distortion Gallery</h2>
       </motion.div>
 
@@ -73,7 +73,7 @@ export function Works() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="relative border-t border-white/10 py-8 md:py-12"
+            className="relative border-t border-white/10 py-8 light:border-black/10 md:py-12"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -89,7 +89,7 @@ export function Works() {
 
               {/* Title */}
               <motion.h3
-                className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight group-hover:text-white/70 transition-colors duration-300 flex-1"
+                className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight group-hover:text-white/70 transition-colors duration-300 flex-1 light:group-hover:text-black/62"
                 animate={{
                   x: hoveredIndex === index ? 20 : 0,
                 }}
@@ -103,7 +103,7 @@ export function Works() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-[10px] tracking-wider px-3 py-1 border border-white/20 rounded-full text-muted-foreground"
+                    className="font-mono text-[10px] tracking-wider px-3 py-1 border border-white/20 rounded-full text-muted-foreground light:border-black/20"
                   >
                     {tag}
                   </span>
@@ -147,7 +147,7 @@ export function Works() {
       </div>
 
       {/* Bottom Border */}
-      <div className="border-t border-white/10" />
+      <div className="border-t border-white/10 light:border-black/10" />
     </section>
   )
 }

@@ -2,7 +2,20 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin } from "lucide-react"
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/eliav-ohaion/",
+    icon: Linkedin,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/oheliav",
+    icon: Github,
+  },
+]
 
 export function Footer() {
   const [time, setTime] = useState("")
@@ -24,7 +37,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="relative">
+    <footer id="contact" className="relative">
       {/* Main CTA */}
       <motion.a
         href="mailto:hello@example.com"
@@ -42,12 +55,12 @@ export function Footer() {
         />
 
         {/* Content */}
-        <div className="relative py-16 md:py-24 px-8 md:px-12 border-t border-white/10">
+        <div className="relative py-16 md:py-24 px-8 md:px-12 border-t border-white/10 light:border-black/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <motion.h2
               className="font-sans text-4xl md:text-6xl lg:text-8xl font-light tracking-tight text-center md:text-left"
               animate={{
-                color: isHovered ? "#050505" : "#fafafa",
+                color: isHovered ? "#050505" : "var(--foreground)",
               }}
               transition={{ duration: 0.3 }}
             >
@@ -57,7 +70,7 @@ export function Footer() {
             <motion.div
               animate={{
                 rotate: isHovered ? 45 : 0,
-                color: isHovered ? "#050505" : "#fafafa",
+                color: isHovered ? "#050505" : "var(--foreground)",
               }}
               transition={{ duration: 0.3 }}
             >
@@ -68,30 +81,35 @@ export function Footer() {
       </motion.a>
 
       {/* Footer Info */}
-      <div className="px-8 md:px-12 py-8 border-t border-white/10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="px-8 md:px-12 py-8 border-t border-white/10 light:border-black/10">
+        <div className="grid items-center gap-4 text-center md:grid-cols-3 md:text-left">
           {/* Local Time */}
           <div className="font-mono text-xs tracking-widest text-muted-foreground">
             <span className="mr-2">LOCAL TIME</span>
-            <span className="text-white tabular-nums">{time}</span>
+            <span className="text-white tabular-nums light:text-black">{time}</span>
           </div>
 
           {/* Links */}
-          <div className="flex gap-8">
-            {["LinkedIn", "GitHub", "Twitter"].map((link) => (
+          <div className="flex justify-center gap-3">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
               <a
-                key={link}
-                href="#"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
                 data-cursor-hover
-                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
+                className="flex h-10 w-10 items-center justify-center border border-white/10 text-muted-foreground transition-colors duration-300 hover:border-white/30 hover:text-white light:border-black/10 light:hover:border-black/30 light:hover:text-black"
+                aria-label={label}
               >
-                {link}
+                <Icon className="h-4 w-4" />
               </a>
             ))}
           </div>
 
-          {/* Copyright */}
-          <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()}</p>
+          {/* Footer Mark */}
+          <p className="font-mono text-xs tracking-widest text-muted-foreground md:text-right">
+            ELIAV OHAION / PRODUCT + ENGINEERING
+          </p>
         </div>
       </div>
     </footer>

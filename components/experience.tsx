@@ -6,53 +6,57 @@ import { Building2, ChevronDown } from "lucide-react"
 
 const experience = [
   {
-    company: "Company Name",
-    location: "Location",
-    dates: "Start - Present",
+    company: "Israeli Ministry of Defense",
+    location: "New York, NY",
+    dates: "Jun 2023 - Present",
     summary:
-      "A promoted role showing growth across product execution, technical discovery, and delivery.",
+      "Promoted from Technical Program Manager to Senior Technical Program Manager, scaling from single high-stakes programs to a multi-hundred-million-dollar portfolio while shipping an on-premise generative AI platform.",
     roles: [
       {
-        title: "Current / Promoted Role",
-        dates: "Date - Present",
+        title: "Senior Technical Program Manager",
+        dates: "Feb 2025 - Present",
       },
       {
-        title: "Previous Role",
-        dates: "Date - Date",
+        title: "Technical Program Manager",
+        dates: "Jun 2023 - Feb 2025",
       },
     ],
     impact: [
-      "Owned product scope from ambiguous problem framing through shipped implementation.",
-      "Worked directly with engineering and design to translate requirements into working software.",
-      "Improved delivery clarity through roadmap planning, prioritization, and stakeholder communication.",
+      "Led a $488M portfolio of 15-20 technology programs, driving prioritization and cross-functional execution that generated ~$200M in aggregate cost savings over three years.",
+      "Led \"AI Factory,\" bringing generative AI to a classified, fully on-premise environment; deployed Llama 3 70B (8-bit) with QLoRA fine-tuning for multilingual and domain-specific behavior, cutting document analysis and drafting workflows from ~1 week to ~1 day.",
+      "Led product development and a 3-engineer team to build and launch Circle, a fully on-premise internal collaboration platform adopted by ~150 employees and handling thousands of daily interactions.",
+      "Identified a critical launch dependency for a next-generation satellite and led technical evaluation of a new commercial launch provider, securing a launch window within one month and mitigating a potential 2+ year operational gap.",
+      "Led integration of HRC, a 28-satellite EO constellation, into existing ground infrastructure; identified architecture gaps preventing independent satellite tasking and drove internal engineering development through integration.",
+      "Took ownership of \"Dumbo,\" a high-stakes data-center platform 8 months behind schedule; uncovered conflicting technical assumptions, aligned engineering teams on a revised solution, and delivered the first milestone in under 3 months.",
+      "Led adoption of Redis for real-time, low-latency data access, from engineering requirements and a Valkey POC through enterprise evaluation and rollout, reducing projected cost from $12M to $7M.",
     ],
-    tags: ["Promotion", "Product Execution", "Technical Delivery"],
+    tags: ["Promotion", "AI Factory", "Program Management"],
   },
   {
-    company: "Company Name",
-    location: "Location",
-    dates: "Start - End",
-    title: "Role Title",
-    summary: "A hands-on technical role focused on building, shipping, and improving software products.",
+    company: "RacePace",
+    location: "Remote, Company Based in Vienna, Austria",
+    dates: "Apr 2023 - 2025",
+    title: "Founding Software Engineer",
+    summary:
+      "Founding engineer for an AI-assisted race-training platform used by ~1200 athletes, owning product architecture and development end to end from data ingestion through prediction systems and the user-facing experience.",
     impact: [
-      "Built product features across frontend, backend, or platform surfaces.",
-      "Collaborated with teammates to debug, iterate, and ship production-ready work.",
-      "Connected implementation details with user-facing product outcomes.",
+      "Designed a hybrid sports-science + ML prediction approach achieving 4.21% MAPE on race-pace predictions while keeping athlete-state estimation interpretable and computationally efficient.",
+      "Shipped race-time predictions, mile-by-mile pacing, and adaptive training plans that automatically recalculated after each workout based on updated athlete fitness and performance data.",
     ],
-    tags: ["Full Stack", "Web Development", "Shipping"],
+    tags: ["Founding Engineer", "ML", "Full Stack"],
   },
   {
-    company: "Company Name",
-    location: "Location",
-    dates: "Start - End",
-    title: "Role Title",
-    summary: "A product-adjacent role showing research, systems thinking, or cross-functional execution.",
+    company: "University of California, Santa Barbara",
+    location: "Santa Barbara, CA",
+    dates: "Sep 2026 - Present",
+    title: "Teaching Assistant, TMP 191AI: AI and Business",
+    summary:
+      "Teaching Assistant leading undergraduate discussions and presentations on applying AI concepts to business and product problems, while providing technical guidance and feedback.",
     impact: [
-      "Analyzed requirements and turned open-ended work into practical next steps.",
-      "Created prototypes, documentation, or systems that helped others move faster.",
-      "Balanced technical constraints with product, business, or user needs.",
+      "Lead undergraduate discussions and presentations on applying AI concepts to business and product problems.",
+      "Provide technical guidance and feedback to students working through AI/business case studies.",
     ],
-    tags: ["Research", "Systems Thinking", "Cross-functional"],
+    tags: ["Teaching", "AI", "Education"],
   },
 ]
 

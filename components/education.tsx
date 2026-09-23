@@ -26,10 +26,10 @@ const education = [
   },
   {
     stage: "Specialization",
-    degree: "Master of Science",
+    degree: "Graduate Studies",
     field: "Computer Science: Artificial Intelligence Track",
     school: "Binghamton University",
-    meta: "Jan 2026 - Present | Binghamton, NY",
+    meta: "Jan 2026 - Sep 2026 | Binghamton, NY",
     gpa: "4.0",
     seal: "MS",
     rotation: "rotate-1",
@@ -171,44 +171,19 @@ function DiplomaCard({ item, index }: { item: (typeof education)[number]; index:
 
 function CurlyArrow({ index }: { index: number }) {
   return (
-    <motion.svg
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      animate={{ y: [0, 5, 0] }}
-      transition={{
-        opacity: { duration: 0.5, delay: 0.15 },
-        y: { duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-      }}
-      viewBox="0 0 240 120"
+      transition={{ duration: 0.5, delay: 0.15 }}
       aria-hidden="true"
-      className={`-my-2 h-32 w-64 text-[#8ea7ff] light:text-[#2563eb] sm:h-40 sm:w-80 ${
-        index % 2 === 0 ? "self-center sm:translate-x-28" : "self-center sm:-translate-x-12"
-      }`}
+      className="flex h-16 flex-col items-center justify-center gap-1 self-center sm:h-20"
     >
-      <defs>
-        <marker id={`education-arrow-${index}`} markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-          <path d="M0,0 L12,6 L0,12 Z" fill="currentColor" />
-        </marker>
-      </defs>
-      <motion.path
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: "easeInOut", delay: 0.1 }}
-        d={
-          index % 2 === 0
-            ? "M18 6 C74 28 122 48 152 76 C170 106 126 118 96 104 C66 90 76 50 118 58 C176 68 206 90 224 110"
-            : "M222 6 C166 28 118 48 88 76 C70 106 114 118 144 104 C174 90 164 50 122 58 C64 68 34 90 16 110"
-        }
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="7"
-        strokeLinecap="round"
-        strokeDasharray="10 15"
-        markerEnd={`url(#education-arrow-${index})`}
-      />
-    </motion.svg>
+      <div className="h-full w-px border-l-2 border-dashed border-[#8ea7ff] light:border-[#2563eb]" />
+      <svg viewBox="0 0 16 10" className="h-2.5 w-4 text-[#8ea7ff] light:text-[#2563eb]">
+        <path d="M0 0 L8 10 L16 0 Z" fill="currentColor" />
+      </svg>
+    </motion.div>
   )
 }
 
@@ -240,7 +215,11 @@ export function Education() {
               className={`flex flex-col ${index === 0 ? "items-start" : index === 1 ? "items-center" : "items-end"}`}
             >
               <DiplomaCard item={item} index={index} />
-              {index < education.length - 1 ? <CurlyArrow index={index} /> : null}
+              {index < education.length - 1 ? (
+                <div className="flex w-full justify-center">
+                  <CurlyArrow index={index} />
+                </div>
+              ) : null}
             </div>
           ))}
         </div>

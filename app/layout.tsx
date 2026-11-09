@@ -16,10 +16,23 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oheliav.github.io"),
   title: "AI-Native Product Builder | Portfolio",
   description: "System Architect & Interface Designer crafting intelligent digital experiences",
   icons: {
     icon: "/icon3.png",
+  },
+  openGraph: {
+    title: "Eliav Ohaion | Portfolio",
+    description: "Building product ideas into working software.",
+    url: "/",
+    siteName: "Eliav Ohaion",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Eliav Ohaion portfolio" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
   },
     generator: 'v0.app'
 }
